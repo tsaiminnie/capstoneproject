@@ -59,6 +59,11 @@ get_header();
 
 		<!-- Add menu-->
 		<?php
+		
+		// calc date (php date)
+		// https://www.php.net/manual/en/function.date.php
+		// https://www.php.net/manual/en/datetime.format.php
+
 		$terms = get_terms(
 					array(
 						'taxonomy' 	=> 'farm-week',

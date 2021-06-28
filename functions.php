@@ -47,6 +47,13 @@ if ( ! function_exists( 'farm_to_plate_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		//Add custom crop with a uniqe name 'menu-home'
+		// menu item image on home page - 398px width, 360px height, hard crop
+		add_image_size( 'menu-home', 398, 360, true );
+
+
+		
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
@@ -94,12 +101,11 @@ if ( ! function_exists( 'farm_to_plate_setup' ) ) :
 		add_theme_support(
 			'custom-logo',
 			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
+				'height'      => 120,
+				'width'       => 120,
 			)
 		);
+
 	}
 endif;
 add_action( 'after_setup_theme', 'farm_to_plate_setup' );
@@ -151,6 +157,11 @@ function farm_to_plate_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'farm_to_plate_scripts' );
 
+
+
+
+
+
 /**
  * Implement the Custom Header feature.
  */
@@ -189,3 +200,14 @@ if ( class_exists( 'WooCommerce' ) ) {
 * Custom Post Types & Taxonomies
 */
 require get_template_directory() . '/inc/cpt-taxonomy.php';
+
+
+
+// add custom image size into the drop down menu
+function create_custom_image_size($sizes){
+	$custom_sizes = array(
+	'menu-home' => 'Menu Home'
+	);
+	return array_merge( $sizes, $custom_sizes );
+}
+add_filter('image_size_names_choose', 'create_custom_image_size');
