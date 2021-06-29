@@ -117,6 +117,10 @@ get_header();
 			echo "<div class='button-container'>";
 				echo "<div class='button'><a href='".get_field( 'cta_link')."'>Try it Free</a></div>";
 			echo "</div>";
+		}else{
+			echo "<div class='button-container'>";
+			echo "<div class='button'><a href='".get_permalink(53)."'>Try it Free</a></div>";
+			echo "</div>";
 		}
 		// <!-- Add Testimonials -->
 			// Output a random testimonial 

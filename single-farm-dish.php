@@ -260,11 +260,15 @@ get_header();
 				?>
 		<?php
 		}
-		
+
 		// <!-- CTA -->
 		if ( get_field( 'cta_link' ) ) {
 			echo "<div class='button-container'>";
 				echo "<div class='button'><a href='".get_field( 'cta_link')."'>Try it Free</a></div>";
+			echo "</div>";
+		}else{
+			echo "<div class='button-container'>";
+			echo "<div class='button'><a href='".get_permalink(53)."'>Try it Free</a></div>";
 			echo "</div>";
 		}
 
