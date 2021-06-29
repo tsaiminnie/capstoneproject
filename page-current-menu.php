@@ -24,7 +24,6 @@ get_header();
 		</nav>
 
 
-		<div class="menu-grid">
 				<?php
 				$currentWeek = date('Y-W');
 				// loop to get menu items ---------------------------------------------------------
@@ -35,6 +34,7 @@ get_header();
 				);
 				if ( $terms && ! is_wp_error( $terms ) ) :
 					// for each service term out put all the related service -------------------------
+					echo "<section class='menu-container'>";
 					foreach ( $terms as $term ) {
 						$args = array(
 							'post_type' 		=> 'farm-dish',
@@ -60,8 +60,8 @@ get_header();
 						$query = new WP_Query( $args );
 						// loop output all the menu ----------------------------------------------
 						if ( $query -> have_posts() ){
-							echo "<section class='this-week-menu'>";
-							echo "<h2>This Week's Menu</h2>";
+							echo "<div class='$term->slug-menu'>";
+							echo "<h2>$term->name Menu</h2>";
 							echo "<div class = 'menu-grid'>";
 							while ( $query -> have_posts() ) {
 								$query -> the_post();
@@ -79,12 +79,20 @@ get_header();
 							wp_reset_postdata();
 						}
 					}
+					echo "</section>";
 				endif;
-				?>	
-				</div>
+	
+		// <!-- CTA -->
+		if ( get_field( 'cta_link' ) ) {
+			echo "<div class='button-container'>";
+				echo "<div class='button'><a href='".get_field( 'cta_link')."'>Try it Free</a></div>";
+			echo "</div>";
+		}else{
+			echo "<div class='button-container'>";
+			echo "<div class='button'><a href='".get_permalink(53)."'>Try it Free</a></div>";
+			echo "</div>";
+		}
 
-
-		<?php
 		// while ( have_posts() ) :
 		// 	the_post();
 
