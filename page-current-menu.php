@@ -15,24 +15,91 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="current menu site-main">
+
+		<nav class="menu-filter">
+			<a href="">Previous Weeks</a>
+			<a class="selected" href="#">Current Week</a>
+			<a href="">Next Week</a>
+		</nav>
+
+
+		<div class="menu-grid">
+				<?php
+				$currentWeek = date('Y-W');
+				// loop to get menu items ---------------------------------------------------------
+				$terms = get_terms(
+					array(
+						'taxonomy' 	=> 'farm-type',
+					)
+				);
+				if ( $terms && ! is_wp_error( $terms ) ) :
+					// for each service term out put all the related service -------------------------
+					foreach ( $terms as $term ) {
+						$args = array(
+							'post_type' 		=> 'farm-dish',
+							'posts_per_page' 	=> -1,
+							// 'orderby'            => 'title',
+							// 'order'              => 'ASC',
+							'tax_query' 		=> array(
+								'relation' => 'AND',
+								array(
+									'taxonomy' 	=> 'farm-week',
+									'field' 	=> 'slug',
+									'terms' 	=> $currentWeek
+								),
+								array(
+									'taxonomy' 	=> 'farm-type',
+									'field' 	=> 'slug',
+									'terms' 	=> $term->slug
+								)
+
+							)
+						);
+
+						$query = new WP_Query( $args );
+						// loop output all the menu ----------------------------------------------
+						if ( $query -> have_posts() ){
+							echo "<section class='this-week-menu'>";
+							echo "<h2>This Week's Menu</h2>";
+							echo "<div class = 'menu-grid'>";
+							while ( $query -> have_posts() ) {
+								$query -> the_post();
+								?>
+								<article class='menu-item'>	
+									<?php
+										the_post_thumbnail('medium');
+									?>
+									<a href="<?php the_permalink();?>"><?php the_title(); ?></a>
+								</article>
+								<?php
+							}
+							echo "</div>";
+							echo "</section>";
+							wp_reset_postdata();
+						}
+					}
+				endif;
+				?>	
+				</div>
+
 
 		<?php
-		while ( have_posts() ) :
-			the_post();
+		// while ( have_posts() ) :
+		// 	the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+		// 	get_template_part( 'template-parts/content', 'page' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+		// 	// If comments are open or we have at least one comment, load up the comment template.
+		// 	if ( comments_open() || get_comments_number() ) :
+		// 		comments_template();
+		// 	endif;
 
-		endwhile; // End of the loop.
+		// endwhile; // End of the loop.
 		?>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

@@ -63,15 +63,14 @@ get_header();
 		// calc date (php date)
 		// https://www.php.net/manual/en/function.date.php
 		// https://www.php.net/manual/en/datetime.format.php
-
+		$currentWeek = date('Y-W');
 		$terms = get_terms(
 					array(
 						'taxonomy' 	=> 'farm-week',
 					)
 				);
 				if ( $terms && ! is_wp_error( $terms ) ) {
-					// for each service term out put all the related service -------------------------
-					foreach ( $terms as $term ) {
+					// foreach ( $terms as $term ) {
 						// Add your WP_Query() code here
 						// Use $term->slug in your tax_query
 						// Use $term->name to organize the posts
@@ -84,12 +83,12 @@ get_header();
 								array(
 									'taxonomy' 	=> 'farm-week',
 									'field' 	=> 'slug',
-									'terms' 	=> "2021-25"
+									'terms' 	=> $currentWeek
 								)
 							)
 						);
 						$query = new WP_Query( $args );
-						// loop output all the service ----------------------------------------------
+						// loop output all the menu ----------------------------------------------
 						if ( $query -> have_posts() ){
 							echo "<section class='this-week-menu'>";
 							echo "<h2>This Week's Menu</h2>";
@@ -110,7 +109,7 @@ get_header();
 							wp_reset_postdata();
 						}
 
-					}
+					// }
 				}
 		// <!-- CTA -->
 		if ( get_field( 'cta_link' ) ) {
