@@ -112,10 +112,13 @@ get_header();
 
 					}
 				}
-		?>
-
-		<!-- Add Testimonials -->
-		<?php
+		// <!-- CTA -->
+		if ( get_field( 'cta_link' ) ) {
+			echo "<div class='button-container'>";
+				echo "<div class='button'><a href='".get_field( 'cta_link')."'>Try it Free</a></div>";
+			echo "</div>";
+		}
+		// <!-- Add Testimonials -->
 			// Output a random testimonial 
 			$args = array(
 				'post_type'      => 'farm-testimonial',
