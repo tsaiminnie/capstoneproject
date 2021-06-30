@@ -38,14 +38,22 @@ get_header();
 				echo '<section class="product">';
 				echo "<div class = 'product-grid'>";
 				while ($query-> have_posts() ){
-					echo "<article class='product-item'>";
 					$query -> the_post();
-					the_post_thumbnail('medium');
-					echo "<h2>".get_the_title()."</h2>";
-					// the_content();
-					$excerpt = get_the_content();
-					echo substr( $excerpt, 0, 260 );
-					echo "</article>";
+					?>
+					<a href="<?php the_permalink();?>">
+						<article class='product-item'>
+						<?php
+						the_post_thumbnail('medium');
+						echo "<h2>".get_the_title()."</h2>";
+						// the_content();
+						$excerpt = get_the_content();
+						echo substr( $excerpt, 0, 260 );
+						?>
+						</article>
+					</a>
+					<?php
+
+
 				}
 				echo "</div>";
 				wp_reset_postdata();

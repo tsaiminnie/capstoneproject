@@ -63,7 +63,7 @@ get_header();
 		// calc date (php date)
 		// https://www.php.net/manual/en/function.date.php
 		// https://www.php.net/manual/en/datetime.format.php
-		$currentWeek = date('Y-W');
+		$currentWeek = date('o-W');
 		$terms = get_terms(
 					array(
 						'taxonomy' 	=> 'farm-week',
@@ -76,7 +76,7 @@ get_header();
 						// Use $term->name to organize the posts
 						$args = array(
 							'post_type' 		=> 'farm-dish',
-							'posts_per_page' 	=> -1,
+							'posts_per_page' 	=> 8,
 							'orderby'            => 'title',
 							'order'              => 'ASC',
 							'tax_query' 		=> array(

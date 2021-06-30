@@ -211,3 +211,6 @@ function create_custom_image_size($sizes){
 	return array_merge( $sizes, $custom_sizes );
 }
 add_filter('image_size_names_choose', 'create_custom_image_size');
+
+
+

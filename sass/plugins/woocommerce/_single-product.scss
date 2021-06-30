@@ -68,6 +68,15 @@
 			}
 		}
 	}
+
+	// remove
+	.wc-tabs,
+	.woocommerce-breadcrumb{
+		display: none;
+	}
+	
+
+
 }
 
 .stock {
@@ -84,3 +93,5 @@
 		color: $woocommerce__color-error;
 	}
 }
+
+
