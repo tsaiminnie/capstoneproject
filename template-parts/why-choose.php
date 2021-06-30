@@ -17,7 +17,7 @@
                 $sub_value_description = get_sub_field('description');
                 echo "<div class = 'why-choose-item'>";
                     echo "<h2>$sub_value_heading</h2>";
-                    echo "<p>$sub_value_description</p>";
+                    echo $sub_value_description;
                 echo "</div>";
             endwhile;
         endif;
