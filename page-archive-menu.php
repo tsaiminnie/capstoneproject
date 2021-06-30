@@ -15,41 +15,34 @@
 get_header();
 ?>
 
-	<main id="primary" class="current menu site-main">
-
-		<nav class="menu-filter">
-			<a href="<?php echo get_permalink(47); ?>">Previous Weeks</a>
-			<a class="selected" href="#">Current Week</a>
-			<a href="<?php echo get_permalink(49); ?>">Next Week</a>
-		</nav>
-
-
+	<main id="primary" class="archive-menu site-main">
+            <h1>Archive Menu</h1>
 				<?php
-				$currentWeek = date('o-W');
+				$currentWeek = date('oW');
 				// loop to get menu items ---------------------------------------------------------
 				$terms = get_terms(
 					array(
-						'taxonomy' 	=> 'farm-type',
+						'taxonomy' 	=> 'farm-week',
+                        'orderby'   =>  'name',
+                        'order'     =>  'DESC',
 					)
 				);
 				if ( $terms && ! is_wp_error( $terms ) ) :
 					// for each service term out put all the related service -------------------------
 					echo "<section class='menu-container'>";
 					foreach ( $terms as $term ) {
+                        $week = str_replace('-', '', $term->name);
+                        if($week >= $currentWeek){
+                            continue;
+                        }
 						$args = array(
 							'post_type' 		=> 'farm-dish',
 							'posts_per_page' 	=> -1,
 							// 'orderby'            => 'title',
-							// 'order'              => 'ASC',
+							// 'order'              => 'DESC',
 							'tax_query' 		=> array(
-								'relation' => 'AND',
 								array(
 									'taxonomy' 	=> 'farm-week',
-									'field' 	=> 'slug',
-									'terms' 	=> $currentWeek
-								),
-								array(
-									'taxonomy' 	=> 'farm-type',
 									'field' 	=> 'slug',
 									'terms' 	=> $term->slug
 								)
@@ -60,16 +53,13 @@ get_header();
 						$query = new WP_Query( $args );
 						// loop output all the menu ----------------------------------------------
 						if ( $query -> have_posts() ){
-							echo "<div class='$term->slug-menu'>";
-							echo "<h2>$term->name Menu</h2>";
-							echo "<div class = 'menu-grid'>";
+							echo "<div class='$term->slug-list'>";
+							echo "<h2>$term->name's Menu</h2>";
+							echo "<div class = 'menu-list'>";
 							while ( $query -> have_posts() ) {
 								$query -> the_post();
 								?>
 								<article class='menu-item'>	
-									<?php
-										the_post_thumbnail('medium');
-									?>
 									<a href="<?php the_permalink();?>"><?php the_title(); ?></a>
 								</article>
 								<?php
@@ -82,16 +72,6 @@ get_header();
 					echo "</section>";
 				endif;
 	
-		// <!-- CTA -->
-		if ( get_field( 'cta_link' ) ) {
-			echo "<div class='button-container'>";
-				echo "<div class='button'><a href='".get_field( 'cta_link')."'>Try it Free</a></div>";
-			echo "</div>";
-		}else{
-			echo "<div class='button-container'>";
-			echo "<div class='button'><a href='".get_permalink(53)."'>Try it Free</a></div>";
-			echo "</div>";
-		}
 
 		// while ( have_posts() ) :
 		// 	the_post();
