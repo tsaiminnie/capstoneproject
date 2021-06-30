@@ -105,6 +105,11 @@ if ( ! function_exists( 'farm_to_plate_setup' ) ) :
 			array(
 				'height'      => 120,
 				'width'       => 120,
+			),
+			'custom-inverse-logo',
+			array(
+				'height'      => 120,
+				'width'       => 120,
 			)
 		);
 
