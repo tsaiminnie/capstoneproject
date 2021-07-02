@@ -254,7 +254,6 @@ function farmtoplate_menu(){
 				)
 			);
 			if ( $terms && ! is_wp_error( $terms ) ) {
-				// foreach ( $terms as $term ) {
 					// Add your WP_Query() code here
 					// Use $term->slug in your tax_query
 					// Use $term->name to organize the posts
@@ -274,9 +273,10 @@ function farmtoplate_menu(){
 					$query = new WP_Query( $args );
 					// loop output all the menu ----------------------------------------------
 					if ( $query -> have_posts() ){
-						echo "<section class='this-week-menu'>";
-						echo "<h2>This Week's Menu</h2>";
-						echo "<div class = 'menu-grid'>";
+						?>
+						<section class='this-week-menu'>
+						<h2>This Week's Menu</h2>
+						<?php
 						while ( $query -> have_posts() ) {
 							$query -> the_post();
 							?>
@@ -288,12 +288,11 @@ function farmtoplate_menu(){
 							</article>
 							<?php
 						}
-						echo "</div>";
-						echo "</section>";
+						?>
+						</section>
+						<?php
 						wp_reset_postdata();
 					}
-
-				// }
 			}
 }
 add_action('woocommerce_after_single_product_summary','farmtoplate_menu',30);

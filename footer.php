@@ -12,20 +12,20 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<!-- <div class="site-info"> -->
-			<!-- logo -->
-			<?php
-			if ( get_field( 'inverse_logo',2 ) ) {
-				echo "<div class='footer-logo'>";
-				echo wp_get_attachment_image( get_field( 'inverse_logo',2 ), 'full', '', array( 'class' => '' ));
-				echo "</div>";
-			}
+		<?php
+		$image = get_field( 'footer_logo','option' );
+		if ( get_field( 'footer_logo','option' ) ) {
 			?>
-			
-			<nav id="footer-navigation" class="footer-navigation">
-				<?php wp_nav_menu( array( 'theme_location' => 'footer') ); ?>
-			</nav>
-		<!-- </div> -->
+			<div class='footer-logo'>
+			<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+			</div>
+			<?php
+		}
+		?>
+		
+		<nav id="footer-navigation" class="footer-navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'footer') ); ?>
+		</nav>
 
 		<nav id="social-navigation" class="social-navigation">
 			<?php wp_nav_menu( array( 'theme_location' => 'social' ) ); ?>
