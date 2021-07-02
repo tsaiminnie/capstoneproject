@@ -216,3 +216,14 @@ add_filter('image_size_names_choose', 'create_custom_image_size');
 
 
 
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Logos Settings',
+		'menu_title'	=> 'Logos Settings',
+		'menu_slug' 	=> 'Logos-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+}
