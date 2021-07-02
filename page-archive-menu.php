@@ -44,8 +44,6 @@ get_header();
 					$args = array(
 						'post_type' 		=> 'farm-dish',
 						'posts_per_page' 	=> -1,
-						// 'orderby'            => 'title',
-						// 'order'              => 'DESC',
 						'tax_query' 		=> array(
 							array(
 								'taxonomy' 	=> 'farm-week',
