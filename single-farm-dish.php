@@ -21,7 +21,9 @@ get_header();
 						the_post_thumbnail('large');
 						$terms = get_the_terms( $post->ID, 'farm-type' );
 						foreach($terms as $term){
-							echo "<p>".$term->name."</p>";
+							?>
+							<p><?php $term->name ?></p>
+							<?php
 						}
 						// farm_to_plate_post_thumbnail();
 						?>
@@ -33,8 +35,9 @@ get_header();
 					<!-- from ACF -->
 					<?php
 						if ( get_field( 'flavour_notes' ) ) {
-							echo "<figure class = 'flavour_notes'>";
-							// add icon for this flavour notes <-------------------
+							?>
+							<figure class = 'flavour_notes'>
+							<!-- // add icon for this flavour notes <-------------------
 							// if(the_field('flavour_notes') === "mild"){
 							// 	// show a icon
 							// }else if(the_field('flavour_notes') === "medium"){
@@ -44,15 +47,16 @@ get_header();
 							// }else{
 							// 	// dont show icon
 							// }
-							?>
+							 -->
 								<figcaption>flavour notes: <?php the_field('flavour_notes'); ?></figcaption>
+								</figure>
 							<?php
-							echo "</figure>";
 						}
 
 						if ( get_field( 'time' ) ) {
-							echo "<figure class = 'time'>";
-							// add icon for this flavour notes <-------------------
+							?>
+							<figure class = 'time'>
+								<!-- // add icon for this flavour notes <-------------------
 							// if(the_field('time') === "15 min"){
 							// 	// show a icon
 							// }else if(the_field('time') === "30 min"){
@@ -62,15 +66,16 @@ get_header();
 							// }else{
 							// 	// dont show icon
 							// }
-							?>
-								<figcaption>time: <?php the_field('time'); ?></figcaption>
+							 -->
+							<figcaption>time: <?php the_field('time'); ?></figcaption>
+							</figure>
 							<?php
-							echo "</figure>";
 						}
 
 						if ( get_field( 'difficulty' ) ) {
-							echo "<figure class = 'difficulty'>";
-							// add icon for this flavour notes <-------------------
+							?>
+							<figure class = 'difficulty'>
+							<!-- // add icon for this flavour notes <-------------------
 							// if(the_field('difficulty') === "beginner"){
 							// 	// show a icon
 							// }else if(the_field('difficulty') === "intermediate"){
@@ -79,11 +84,10 @@ get_header();
 							// 	// show a icon
 							// }else{
 							// 	// dont show icon
-							// }
-							?>
+							// } -->
 								<figcaption>difficulty: <?php the_field('difficulty'); ?></figcaption>
-							<?php
-							echo "</figure>";
+								</figure>
+								<?php
 						}
 					?>
 				</article>
@@ -106,12 +110,13 @@ get_header();
 							while( have_rows('what_we_deliver') ) : the_row();
 								$sub_value_img = wp_get_attachment_image( get_sub_field('ingredient_image'), 'full', '', array( 'class' => '' ));
 								$sub_value_text = get_sub_field('ingredient_name');
-								echo "<article class = 'deliver-item'>";
-									echo $sub_value_img;
-									echo "<p>$sub_value_text</p>";
-								echo "</article>";
-							endwhile;
-						?>
+								?>
+								<article class = 'deliver-item'>
+								<?php echo $sub_value_img; ?>
+								<p><?php echo $sub_value_text ?></p>
+								</article>
+
+						<?php	endwhile; ?>
 					</section>
 				<?php
 				endif;
@@ -123,10 +128,11 @@ get_header();
 						<?php
 							while( have_rows('what_you_need') ) : the_row();
 								$sub_value_text = get_sub_field('ingredients_and_tools');
-								echo "<li class = 'need-item'>";
-									echo "$sub_value_text";
-								echo "</li>";
-							endwhile;
+						?>
+									<li class = 'need-item'>
+									<?php echo "$sub_value_text" ?>
+									</li>
+						<?php	endwhile;
 						?>
 						</ul>
 					</section>
@@ -253,12 +259,13 @@ get_header();
 								$sub_value_img = wp_get_attachment_image( get_sub_field('image'), 'medium', '', array( 'class' => '' ));
 								$sub_value_step = get_sub_field('step');
 								$sub_value_text_area = get_sub_field('text_area');
-								echo "<div class = 'cooking-steps'>";
-									echo $sub_value_img;
-									echo "<h3>$sub_value_step</h3>";
-									echo "$sub_value_text_area";
-								echo "</div>";
-							endwhile;
+						?>
+								<article class = 'cooking-steps'>
+									<?php echo $sub_value_img; ?>
+									<h3><?php echo $sub_value_step ?> </h3>
+									<?php $sub_value_text_area ?>
+								</article>
+						<?php	endwhile;
 						?>
 					</section>
 				<?php
@@ -269,13 +276,17 @@ get_header();
 
 		// <!-- CTA -->
 		if ( get_field( 'cta_link' ) ) {
-			echo "<div class='button-container'>";
-				echo "<div class='button'><a href='".get_field( 'cta_link')."'>Try it Free</a></div>";
-			echo "</div>";
+			?>
+			<section class='button-container'>
+				<div class='button'><a href=' <?php echo get_field( 'cta_link') ?> '>Try It Free</a></div>
+			</section>
+		<?php
 		}else{
-			echo "<div class='button-container'>";
-			echo "<div class='button'><a href='".get_permalink(53)."'>Try it Free</a></div>";
-			echo "</div>";
+			?>
+			<section class='button-container'>
+			<div class='button'><a href='<?php echo get_permalink(53) ?>'>Try It Free</a></div>
+			</section>
+		<?php
 		}
 
 
