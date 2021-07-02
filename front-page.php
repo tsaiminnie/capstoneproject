@@ -16,41 +16,60 @@ get_header();
 ?>
 
 	<main id="primary" class="home-page site-main">
-
-		<!-- add ACF -->
 		<?php 
+		while ( have_posts() ) :
+		the_post();
+		// <!-- add ACF -->
+		
 			if ( function_exists ( 'get_field' ) ) {
-
 				// Banner
-				echo "<section class = 'banner'>";
+				?>
+				<section class = 'banner'>
+				<?php
 				if ( get_field( 'banner_image' ) ) {
 					echo wp_get_attachment_image( get_field( 'banner_image' ), 'full', '', array( 'class' => '' ));
 				}
 
 				if ( get_field( 'banner_text_area' ) ) {
-					echo "<p>".get_field( 'banner_text_area')."</p>";
+					?>
+					<p> <?php echo get_field( 'banner_text_area'); ?> </p>
+					<?php
 				}
 
 				if ( get_field( 'banner_link' ) ) {
-					echo "<div class='button'><a href='".get_field( 'banner_link')."'>Try it Free</a></div>";
+					?>
+					<div class='button'><a href='<?php echo get_field( 'banner_link') ?>'>Try It Free</a></div>
+					<?php
 				}
-				echo "</section>";
+				?>
+				</section>
 
-				// How It Works
-				echo "<section class = 'how-it-works'>";
+				<!-- // How It Works -->
+
+				<section class = 'how-it-works'>
+				<?php
 				if( have_rows('how_it_works') ):
+					?>
+					<h2>How It Works</h2>
+					<?php
 					while( have_rows('how_it_works') ) : the_row();
 						$sub_value_img = wp_get_attachment_image( get_sub_field('image'), 'full', '', array( 'class' => '' ));
 						$sub_value_heading = get_sub_field('heading');
 						$sub_value_text = get_sub_field('text_area');
-						echo "<div class = 'how-it-work-item'>";
+						?>
+						<article class = 'how-it-work-item'>
+						<?php
 							echo $sub_value_img;
 							echo "<h2>$sub_value_heading</h2>";
 							echo "<p>$sub_value_text</p>";
-						echo "</div>";
+						?>
+						</article>
+						<?php
 					endwhile;
 				endif;
-				echo "</section>";
+				?>
+				</section>
+				<?php
 
 				// Why Choose
 				get_template_part( 'template-parts/why', 'choose' );
@@ -70,7 +89,6 @@ get_header();
 					)
 				);
 				if ( $terms && ! is_wp_error( $terms ) ) {
-					// foreach ( $terms as $term ) {
 						// Add your WP_Query() code here
 						// Use $term->slug in your tax_query
 						// Use $term->name to organize the posts
@@ -90,9 +108,10 @@ get_header();
 						$query = new WP_Query( $args );
 						// loop output all the menu ----------------------------------------------
 						if ( $query -> have_posts() ){
-							echo "<section class='this-week-menu'>";
-							echo "<h2>This Week's Menu</h2>";
-							echo "<div class = 'menu-grid'>";
+							?>
+							<section class='this-week-menu'>
+							<h2>This Week's Menu</h2>
+							<?php
 							while ( $query -> have_posts() ) {
 								$query -> the_post();
 								?>
@@ -104,22 +123,26 @@ get_header();
 								</article>
 								<?php
 							}
-							echo "</div>";
-							echo "</section>";
+							?>
+							</section>
+							<?php
 							wp_reset_postdata();
 						}
 
-					// }
 				}
 		// <!-- CTA -->
 		if ( get_field( 'cta_link' ) ) {
-			echo "<div class='button-container'>";
-				echo "<div class='button'><a href='".get_field( 'cta_link')."'>Try it Free</a></div>";
-			echo "</div>";
+			?>
+			<section class='button-container'>
+				<div class='button'><a href=' <?php echo get_field( 'cta_link') ?> '>Try It Free</a></div>
+			</section>
+		<?php
 		}else{
-			echo "<div class='button-container'>";
-			echo "<div class='button'><a href='".get_permalink(53)."'>Try it Free</a></div>";
-			echo "</div>";
+			?>
+			<section class='button-container'>
+			<div class='button'><a href='<?php echo get_permalink(53) ?>'>Try It Free</a></div>
+			</section>
+		<?php
 		}
 		// <!-- Add Testimonials -->
 			// Output a random testimonial 
@@ -131,17 +154,23 @@ get_header();
 
 				$query = new WP_Query( $args );
 				if ( $query -> have_posts() ){
-					echo '<section class="testimonial"><h2>Testimonial</h2>';
-					echo "<div class = 'testimonial-grid'>";
+					?>
+					<section class="testimonial"><h2>Testimonial</h2>
+					<?php
 					while ($query-> have_posts() ){
-						echo "<article class='testimonial-item'>";
+						?>
+						<article class='testimonial-item'>
+						<?php
 						$query -> the_post();
 						the_content();
-						echo "</article>";
+						?>
+						</article>
+						<?php
 					}
-					echo "</div>";
 					wp_reset_postdata();
-					echo '</section>';
+					?>
+					</section>
+					<?php
 				}
 		?>
 
@@ -156,21 +185,24 @@ get_header();
 
 				$query = new WP_Query( $args );
 				if ( $query -> have_posts() ){
-					echo '<section class="social"><h2>Social</h2>';
-					echo "<div class = 'social-grid'>";
+					?>
+					<section class="social"><h2>Social</h2>
+					<?php
 					while ($query-> have_posts() ){
 						$query -> the_post();
-						echo "<article class='social-item'>";
 						?>
-						<a href="<?php the_permalink();?>"><?php
+						<article class='social-item'>
+						<a href="<?php the_permalink();?>">
+						<?php
 						the_post_thumbnail('medium');
 						?></a>
+						</article>
 						<?php
-						echo "</article>";
 					}
-					echo "</div>";
 					wp_reset_postdata();
-					echo '</section>';
+					?>
+					</section>
+					<?php
 				}
 		?>
 
@@ -181,17 +213,7 @@ get_header();
 		</section>
 
 		<?php
-		// while ( have_posts() ) :
-		// 	the_post();
-
-		// 	get_template_part( 'template-parts/content', 'page' );
-
-		// 	// If comments are open or we have at least one comment, load up the comment template.
-		// 	if ( comments_open() || get_comments_number() ) :
-		// 		comments_template();
-		// 	endif;
-
-		// endwhile; // End of the loop.
+		endwhile; // End of the loop.
 		?>
 
 	</main><!-- #main -->

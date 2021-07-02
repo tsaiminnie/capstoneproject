@@ -9,18 +9,24 @@
 
 ?>
 
+<section class = 'why-choose'>
 <?php
-    echo "<section class = 'why-choose'>";
         if( have_rows('why_choose') ):
+            ?>
+            <h2>Why Choose</h2>
+            <?php
             while( have_rows('why_choose') ) : the_row();
                 $sub_value_heading = get_sub_field('heading');
                 $sub_value_description = get_sub_field('description');
-                echo "<div class = 'why-choose-item'>";
-                    echo "<h2>$sub_value_heading</h2>";
+                ?>
+                <article class = 'why-choose-item'>
+                    <h3> <?php echo $sub_value_heading; ?> </h3>
+                    <?php
                     echo $sub_value_description;
-                echo "</div>";
+                    ?>
+                </article>
+                <?php
             endwhile;
         endif;
-    echo "</section>";
-
-?>
+        ?>
+    </section>
