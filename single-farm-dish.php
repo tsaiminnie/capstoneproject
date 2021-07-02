@@ -15,6 +15,8 @@ get_header();
 		<section class='banner'>
 			<div class='inner-banner'>
 				<?php
+						while ( have_posts() ) :
+							the_post();
 						the_title( '<h1 class="dish-title">', '</h1>' );
 						the_post_thumbnail('large');
 						$terms = get_the_terms( $post->ID, 'farm-type' );
@@ -27,11 +29,11 @@ get_header();
 			<?php
 			if ( function_exists ( 'get_field' ) ) {
 			?>
-				<div class='dish-info-icon'>
+				<article class='dish-info-icon'>
 					<!-- from ACF -->
 					<?php
 						if ( get_field( 'flavour_notes' ) ) {
-							echo "<div class = 'flavour_notes'>";
+							echo "<figure class = 'flavour_notes'>";
 							// add icon for this flavour notes <-------------------
 							// if(the_field('flavour_notes') === "mild"){
 							// 	// show a icon
@@ -43,13 +45,13 @@ get_header();
 							// 	// dont show icon
 							// }
 							?>
-								<p>flavour notes: <?php the_field('flavour_notes'); ?></p>
+								<figcaption>flavour notes: <?php the_field('flavour_notes'); ?></figcaption>
 							<?php
-							echo "</div>";
+							echo "</figure>";
 						}
 
 						if ( get_field( 'time' ) ) {
-							echo "<div class = 'time'>";
+							echo "<figure class = 'time'>";
 							// add icon for this flavour notes <-------------------
 							// if(the_field('time') === "15 min"){
 							// 	// show a icon
@@ -61,13 +63,13 @@ get_header();
 							// 	// dont show icon
 							// }
 							?>
-								<p>time: <?php the_field('time'); ?></p>
+								<figcaption>time: <?php the_field('time'); ?></figcaption>
 							<?php
-							echo "</div>";
+							echo "</figure>";
 						}
 
 						if ( get_field( 'difficulty' ) ) {
-							echo "<div class = 'difficulty'>";
+							echo "<figure class = 'difficulty'>";
 							// add icon for this flavour notes <-------------------
 							// if(the_field('difficulty') === "beginner"){
 							// 	// show a icon
@@ -79,12 +81,12 @@ get_header();
 							// 	// dont show icon
 							// }
 							?>
-								<p>difficulty: <?php the_field('difficulty'); ?></p>
+								<figcaption>difficulty: <?php the_field('difficulty'); ?></figcaption>
 							<?php
-							echo "</div>";
+							echo "</figure>";
 						}
 					?>
-				</div>
+				</article>
 			<?php
 			}
 			?>
@@ -98,48 +100,53 @@ get_header();
 				<?php
 				if( have_rows('what_we_deliver') ):
 				?>
-					<div class="deliver">
+					<section class="deliver">
 						<h3>What We Deliver</h3>
 						<?php
 							while( have_rows('what_we_deliver') ) : the_row();
 								$sub_value_img = wp_get_attachment_image( get_sub_field('ingredient_image'), 'full', '', array( 'class' => '' ));
 								$sub_value_text = get_sub_field('ingredient_name');
-								echo "<div class = 'deliver-item'>";
+								echo "<article class = 'deliver-item'>";
 									echo $sub_value_img;
 									echo "<p>$sub_value_text</p>";
-								echo "</div>";
+								echo "</article>";
 							endwhile;
 						?>
-					</div>
+					</section>
 				<?php
 				endif;
 				if( have_rows('what_you_need') ):
 				?>
-					<div class="need">
+					<section class="need">
 						<h3>What You Need</h3>
+						<ul>
 						<?php
 							while( have_rows('what_you_need') ) : the_row();
 								$sub_value_text = get_sub_field('ingredients_and_tools');
-								echo "<div class = 'need-item'>";
-									echo "<p>$sub_value_text</p>";
-								echo "</div>";
+								echo "<li class = 'need-item'>";
+									echo "$sub_value_text";
+								echo "</li>";
 							endwhile;
 						?>
-					</div>
+						</ul>
+					</section>
 				<?php
 				endif;
 				?>
 
-				<div class="nutrition">
-					<h3>Nutrition</h3>
+				<table class="nutrition">
+					<thead>
+					<tr><h3>Nutrition</h3></tr>
+					</thead>
+					<tbody>
 					<?php
 					if ( get_field( 'calories' ) ) {
 						$field = get_field_object('calories');
 						?>
-						<div class="<?php echo $field['name']; ?> nutrition-item">
-							<h4><?php echo $field['label']; ?></h4> 
-							<h4><?php echo $field['value']; ?></h4>
-							</div>	
+						<tr class="<?php echo $field['name']; ?> nutrition-item">
+							<td><?php echo $field['label']; ?></td> 
+							<td><?php echo $field['value']; ?></td>
+							</tr>	
 					<?php
 					}
 					?>
@@ -148,10 +155,10 @@ get_header();
 					if ( get_field( 'total_fat' ) ) {
 						$field = get_field_object('total_fat');
 						?>
-						<div class="<?php echo $field['name']; ?> nutrition-item">
-							<p><?php echo $field['label']; ?></p> 
-							<p><?php echo $field['value']; ?></p>
-							</div>	
+						<tr class="<?php echo $field['name']; ?> nutrition-item">
+							<td><?php echo $field['label']; ?></td> 
+							<td><?php echo $field['value']; ?></td>
+							</tr>	
 					<?php
 					}
 					?>
@@ -160,10 +167,10 @@ get_header();
 					if ( get_field( 'protein' ) ) {
 						$field = get_field_object('protein');
 						?>
-						<div class="<?php echo $field['name']; ?> nutrition-item">
-							<p><?php echo $field['label']; ?></p> 
-							<p><?php echo $field['value']; ?></p>
-							</div>	
+						<tr class="<?php echo $field['name']; ?> nutrition-item">
+							<td><?php echo $field['label']; ?></td> 
+							<td><?php echo $field['value']; ?></td>
+							</tr>	
 					<?php
 					}
 					?>
@@ -172,10 +179,10 @@ get_header();
 					if ( get_field( 'carbohydrate' ) ) {
 						$field = get_field_object('carbohydrate');
 						?>
-						<div class="<?php echo $field['name']; ?> nutrition-item">
-							<p><?php echo $field['label']; ?></p> 
-							<p><?php echo $field['value']; ?></p>
-							</div>	
+						<tr class="<?php echo $field['name']; ?> nutrition-item">
+							<td><?php echo $field['label']; ?></td> 
+							<td><?php echo $field['value']; ?></td>
+							</tr>	
 					<?php
 					}
 					?>
@@ -184,10 +191,10 @@ get_header();
 					if ( get_field( 'sodium' ) ) {
 						$field = get_field_object('sodium');
 						?>
-						<div class="<?php echo $field['name']; ?> nutrition-item">
-							<p><?php echo $field['label']; ?></p> 
-							<p><?php echo $field['value']; ?></p>
-							</div>	
+						<tr class="<?php echo $field['name']; ?> nutrition-item">
+							<td><?php echo $field['label']; ?></td> 
+							<td><?php echo $field['value']; ?></td>
+							</tr>	
 					<?php
 					}
 					?>
@@ -195,8 +202,7 @@ get_header();
 					<?php
 					if( have_rows('nutrients') ):
 						$field = get_field_object('nutrients');		
-					?>
-						<div class="<?php echo $field['name']; ?>">
+					?>						
 							<h4><?php echo $field['label']; ?></h4>
 							<?php
 								while( have_rows('nutrients') ) : the_row();
@@ -205,21 +211,21 @@ get_header();
 									$sub_value_name = get_sub_field('name');
 									
 									?>
-									<div class="nutrients-item">
+									<tr class="nutrients-item">
 									<?php
-										echo "<p>$sub_value_label</p>";
-										echo "<p>$sub_value_value</p>";
-									echo "</div>";
+										echo "<td>$sub_value_label</td>";
+										echo "<td>$sub_value_value</td>";
+									echo "</tr>";
 								endwhile;
 							?>
-						</div>
+						<!-- </div> -->
 					<?php
 					endif;
 					?>
+				</tbody>
+				</table>
 
-				</div>
-
-				<div class="allergen">
+				<article class="allergen">
 				<?php
 					if ( get_field( 'allergen' ) ) {
 						?>
@@ -228,7 +234,7 @@ get_header();
 					<?php	
 					}
 					?>
-				</div>
+				</article>
 			</section>
 		<?php
 		}
@@ -272,8 +278,7 @@ get_header();
 			echo "</div>";
 		}
 
-		// while ( have_posts() ) :
-		// 	the_post();
+
 
 		// 	get_template_part( 'template-parts/content', get_post_type() );
 
@@ -289,7 +294,7 @@ get_header();
 			// 	comments_template();
 			// endif;
 
-		// endwhile; // End of the loop.
+		endwhile; // End of the loop.
 		?>
 
 	</main><!-- #main -->
