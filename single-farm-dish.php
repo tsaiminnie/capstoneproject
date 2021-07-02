@@ -236,7 +236,7 @@ get_header();
 					if ( get_field( 'allergen' ) ) {
 						?>
 						<h3>Allergen Info</h3>
-						<p>time: <?php the_field('allergen'); ?></p>
+						<p><?php the_field('allergen'); ?></p>
 					<?php	
 					}
 					?>
@@ -263,7 +263,7 @@ get_header();
 								<article class = 'cooking-steps'>
 									<?php echo $sub_value_img; ?>
 									<h3><?php echo $sub_value_step ?> </h3>
-									<?php $sub_value_text_area ?>
+									<?php echo $sub_value_text_area ?>
 								</article>
 						<?php	endwhile;
 						?>
