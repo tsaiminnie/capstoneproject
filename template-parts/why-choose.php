@@ -14,6 +14,7 @@
         if( have_rows('why_choose') ):
             ?>
             <h2>Why Choose</h2>
+            <div class="why-choose-reasons">
             <?php
             while( have_rows('why_choose') ) : the_row();
                 $sub_value_heading = get_sub_field('heading');
@@ -25,8 +26,10 @@
                     echo $sub_value_description;
                     ?>
                 </article>
+            
                 <?php
             endwhile;
         endif;
         ?>
+        </div>
     </section>

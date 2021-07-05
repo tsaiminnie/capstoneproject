@@ -1,3 +1,63 @@
-.why-farm-to-plate {
-  margin: 0;
+.why-choose {
+  color: $color__background-body;
+  background: $color__background-button;
+  display: grid;
+  grid-template-columns: 20px repeat(3, 1fr) 20px;
+  grid-template-rows: 20px 100px repeat(2, 1fr) 20px;
+  grid-column-gap: 100px;
+  grid-row-gap: 0px;
+  place-items: center;
+}
+
+// .why-choose-item {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.why-choose h2 {
+  grid-area: 2 / 2 / 3 / 5;
+}
+.div2 {
+  grid-area: 4 / 1 / 5 / 2;
+}
+.div3 {
+  grid-area: 1 / 5 / 2 / 6;
+}
+.div4 {
+  grid-area: 5 / 4 / 6 / 5;
+}
+.why-choose-reasons {
+  grid-area: 3 / 2 / 5 / 5;
+  display: flex;
+}
+
+.why-choose-item {
+  max-width: 270px;
+  padding: 2rem;
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .why-choose-reasons {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+  }
+
+  .why-choose-item {
+    max-width: 450px;
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .why-choose-reasons {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+  }
+
+  .why-choose-item {
+    max-width: 300px;
+    padding: 1rem;
+  }
 }
