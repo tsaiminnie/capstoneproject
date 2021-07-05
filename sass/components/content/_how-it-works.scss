@@ -1,0 +1,41 @@
+.how-it-works {
+
+    margin: 6rem auto;
+    
+    & > h2 {
+        text-align: center; 
+        margin: $header-margin;
+    }
+
+    h2, p {
+        font-family: $font__main;
+        color: $color__primary;
+    }
+
+    .how-it-work-item {
+        margin: 0 1rem;
+
+        h2 {
+        font-size: 1.5rem;
+        }
+}
+}
+
+    @media screen and (min-width: 679px) {
+        .how-it-works {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            max-width: 1600px;
+
+            & > h2 {
+                flex-basis: 100%;
+            }
+
+            .how-it-work-item {
+                // flex-basis: 33%;
+                width: 300px;
+            }
+
+        }
+    }
