@@ -1,3 +1,66 @@
 .site-footer{
+    background-color: $color__primary;
+    padding: 1.5rem 0;
+    text-align: center;
+
+    .footer-logo {
+        margin: .5rem auto;
+        width: 20%;
+        display: block;
+    }
+
+    .social-navigation {
+        padding: .5rem 0;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+
+            a {
+                fill: #fff;
+                margin: 0 .5rem;
+            }
+        }
+    }
+
+    .footer-navigation {
+        padding: .5rem 0;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            
+            a {
+                color: #fff;
+                padding: 0 .5rem;
+            }
+        }
+    }
+
     
+    @media all and (min-width: $breakpoint-tablet) {
+        @include flex-row;
+
+        .footer-logo {
+            margin: 0;
+            width: 20%
+        }
+
+        .footer-navigation {
+            width: 50%;
+        }
+
+        .social-navigation {
+            width: 20%;
+        }
+        
+        
+    }
+
 }
