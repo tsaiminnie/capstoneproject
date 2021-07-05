@@ -1,12 +1,11 @@
 .site {
 	display: grid;
-	grid-template-columns: auto ($size__site-sidebar);
+	grid-template-columns: auto;
 	grid-template-areas:
-		"header header"
-		"main sidebar"
-		"footer footer";
+		"header"
+		"main"
+		"footer";
 }
-
 .site-header {
 	grid-area: header;
 }
@@ -16,12 +15,6 @@
 	overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
 }
 
-.widget-area {
-	grid-area: sidebar;
-}
-
 .site-footer {
 	grid-area: footer;
 }
-
-@import "no-sidebar";

@@ -9,3 +9,56 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// Centering elements (wrapper)
+@mixin margin-center {
+	margin: {
+	  left: auto;
+	  right: auto;
+	}
+  }
+  
+  // positioning elements in a flex container
+  @mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+  }
+  
+  @mixin flex-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: wrap;
+  }
+  
+  @mixin flex-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
+  
+  // a link style
+  @mixin a-base {
+	text-decoration: none;
+  }
+
+//   button
+	@mixin button-green {
+		background-color: $color__background-button;
+		background-image: url("../../../img/green-button.png");
+		padding: 10px 20px;
+		color: white;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	}
+	@mixin button-yellow {
+		background-color: $color__background-button-yellow;
+		background-image: url("../../../img/yellow-button.png");
+		padding: 10px 20px;
+		color: white;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	}
+

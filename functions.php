@@ -144,6 +144,10 @@ function farm_to_plate_widgets_init() {
 }
 add_action( 'widgets_init', 'farm_to_plate_widgets_init' );
 
+// add a google font ( always set version number to 'null' for google font )
+wp_enqueue_style( 'fwd-googlefonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap', array(), null );
+// font-family: 'Lato', sans-serif;
+
 /**
  * Enqueue scripts and styles.
  */
