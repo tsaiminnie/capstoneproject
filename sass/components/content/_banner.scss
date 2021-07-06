@@ -1,5 +1,7 @@
 .banner {
 
+    position: relative; 
+
     .img-container {
         width: 768px;
         height: 500px;
@@ -24,8 +26,8 @@
     }
 
     h1 {
-        position: relative;
-        bottom: 10rem;
+        position: absolute;
+        bottom: 8rem;
         font-size: 1.5rem;
         color: $color__primary;
     }
@@ -35,8 +37,8 @@
     }
 
     .button {
-        position: relative;
-        bottom: 8.5rem;
+        position: absolute;
+        bottom: 4.5rem;
         display: inline-block;
 
         a {
@@ -52,12 +54,12 @@
         }
 
         h1 {
-            bottom: 12rem;
+            bottom: 7rem;
             font-size: 2rem;
         }
 
         .button {
-            bottom: 10.5rem;
+            bottom: 3rem;
         }
     }
 
@@ -67,12 +69,12 @@
         }
 
         h1 {
-            bottom: 14rem;
+            // bottom: 14rem;
             font-size: 2.5rem;
         }
 
         .button {
-            bottom: 12.5rem;
+            // bottom: 12.5rem;
         }
     }
 }
