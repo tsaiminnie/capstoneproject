@@ -52,12 +52,15 @@ get_header();
 							<a href="<?php the_permalink();?>">
 								<article class='product-item'>
 								<?php
-								the_post_thumbnail('medium');
+								the_post_thumbnail('menu-home');
 								echo "<h2>".get_the_title()."</h2>";
 								// the_content();
 								$excerpt = get_the_content();
-								echo substr( $excerpt, 0, 260 );
+								echo substr( $excerpt, 0, 100 );
 								?>
+								<div class="button">
+									<p>Select</p>
+								</div>
 								</article>
 							</a>
 							<?php
