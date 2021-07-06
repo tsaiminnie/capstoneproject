@@ -37,6 +37,7 @@
     .button {
         position: relative;
         bottom: 8.5rem;
+        display: inline-block;
 
         a {
             @include button-yellow;

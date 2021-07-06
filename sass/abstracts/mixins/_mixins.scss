@@ -48,18 +48,23 @@
 
 //   button
 	@mixin button-green {
-		background-color: $color__background-button;
-		background-image: url("../../../img/green-button.png");
+		background-image: url("img/green-button.png");
+		background-size: cover;
+		background-position: center bottom;
+		background-color: transparent;
 		padding: 10px 20px;
 		color: white;
 		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		display: block;
 	}
 	@mixin button-yellow {
-		// background-color: $color__background-button-yellow;
 		background-image: url("img/yellow-button.png");
-		// background-image: url("../../../img/yellow-button.png");
+		background-size: cover;
+		background-position: center bottom;
+		background-color: transparent;
 		padding: 10px 20px;
 		color: white;
 		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		display: block;
 	}
 

@@ -119,10 +119,12 @@ get_header();
 								$query -> the_post();
 								?>
 								<article class='menu-item'>	
+								<a href="<?php the_permalink();?>">
 									<?php
-										the_post_thumbnail('medium');
+										the_post_thumbnail('menu-home');
 									?>
-									<a href="<?php the_permalink();?>"><?php the_title(); ?></a>
+									<h3><?php the_title(); ?></h3>
+								</a>
 								</article>
 								<?php
 							}
