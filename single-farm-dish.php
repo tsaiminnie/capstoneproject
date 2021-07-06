@@ -37,18 +37,23 @@ get_header();
 						if ( get_field( 'flavour_notes' ) ) {
 							?>
 							<figure class = 'flavour_notes'>
-							<!-- // add icon for this flavour notes <-------------------
-							// if(the_field('flavour_notes') === "mild"){
-							// 	// show a icon
-							// }else if(the_field('flavour_notes') === "medium"){
-							// 	// show a icon
-							// }else if(the_field('flavour_notes') === "hot"){
-							// 	// show a icon
-							// }else{
-							// 	// dont show icon
-							// }
-							 -->
-								<figcaption>flavour notes: <?php the_field('flavour_notes'); ?></figcaption>
+							<?php
+							if(get_field('flavour_notes') === "mild"){
+								?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/mild.png" alt="mild flavour">
+								<?php
+								
+							}else if(get_field('flavour_notes') === "medium"){
+								?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/medium.png" alt="medium spicy flavour">
+								<?php
+							}else if(get_field('flavour_notes') === "hot"){
+								?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/spicy.png" alt="spicy flavour">
+								<?php
+							}
+							?>
+								<!-- <figcaption>flavour notes: <?php the_field('flavour_notes'); ?></figcaption> -->
 								</figure>
 							<?php
 						}
@@ -56,18 +61,22 @@ get_header();
 						if ( get_field( 'time' ) ) {
 							?>
 							<figure class = 'time'>
-								<!-- // add icon for this flavour notes <-------------------
-							// if(the_field('time') === "15 min"){
-							// 	// show a icon
-							// }else if(the_field('time') === "30 min"){
-							// 	// show a icon
-							// }else if(the_field('time') === "1 hr"){
-							// 	// show a icon
-							// }else{
-							// 	// dont show icon
-							// }
-							 -->
-							<figcaption>time: <?php the_field('time'); ?></figcaption>
+							<?php
+							if(get_field('time') === "15 min"){
+								?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/15min.png" alt="15 min to cook">
+								<?php
+							}else if(get_field('time') === "30 min"){
+								?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/30min.png" alt="30 min to cook">
+								<?php
+							}else if(get_field('time') === "1 hr"){
+								?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/1hr.png" alt="1 hour to cook">
+								<?php
+							}
+							?>
+							<!-- <figcaption>time: <?php the_field('time'); ?></figcaption> -->
 							</figure>
 							<?php
 						}
@@ -75,17 +84,22 @@ get_header();
 						if ( get_field( 'difficulty' ) ) {
 							?>
 							<figure class = 'difficulty'>
-							<!-- // add icon for this flavour notes <-------------------
-							// if(the_field('difficulty') === "beginner"){
-							// 	// show a icon
-							// }else if(the_field('difficulty') === "intermediate"){
-							// 	// show a icon
-							// }else if(the_field('difficulty') === "expert"){
-							// 	// show a icon
-							// }else{
-							// 	// dont show icon
-							// } -->
-								<figcaption>difficulty: <?php the_field('difficulty'); ?></figcaption>
+							<?php
+							if(get_field('difficulty') === "beginner"){
+								?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/beginner.png" alt="beginner skill level to cook">
+								<?php
+							}else if(get_field('difficulty') === "intermediate"){
+								?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/intermediate.png" alt="intermediate skill level to cook">
+								<?php
+							}else if(get_field('difficulty') === "expert"){
+								?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/expert.png" alt="expert skill level to cook">
+								<?php
+							}
+							?>
+								<!-- <figcaption>difficulty: <?php the_field('difficulty'); ?></figcaption> -->
 								</figure>
 								<?php
 						}
