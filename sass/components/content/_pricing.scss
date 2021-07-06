@@ -1,0 +1,55 @@
+.pricing {
+    .free-trial-note {
+        p {
+            margin: 0;
+        }
+
+        background-color: #CADED4;
+        color: $color__primary;
+        text-align: center;
+        padding: .5rem 0;
+    }
+
+    .product {
+        padding: 1rem;
+    }
+
+    .product-item {
+        width: 300px;
+        margin: 2rem auto 3rem;
+        padding-bottom: .75rem;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 15px;
+
+        h3, p, .button {
+            padding: 0 1.5rem;
+            margin: .5rem 0;
+        }
+
+        img {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .button {
+            @include button-green;
+            margin: 1rem;
+            padding: 3px 0;
+            width: 120px;
+
+            p {
+                text-align: center;
+                font-weight: 700;
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    @media all and (min-width: $breakpoint-mobile) {
+        .product {
+            width: 60%;
+            margin: 1rem auto;
+            @include flex-center;
+        }
+    }
+}

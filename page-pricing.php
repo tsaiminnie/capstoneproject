@@ -44,31 +44,30 @@ get_header();
 				if ( $query -> have_posts() ){
 					?>
 					<section class="product">
-						<div class = 'product-grid'>
 						<?php
 						while ($query-> have_posts() ){
 							$query -> the_post();
 							?>
+							<article class='product-item'>
 							<a href="<?php the_permalink();?>">
-								<article class='product-item'>
 								<?php
 								the_post_thumbnail('menu-home');
-								echo "<h2>".get_the_title()."</h2>";
+								echo "<h3>".get_the_title()."</h3>";
 								// the_content();
-								$excerpt = get_the_content();
-								echo substr( $excerpt, 0, 100 );
-								?>
+								$excerpt = get_the_content();?>
+								<p><?php echo substr( $excerpt, 0, 100 );?></p>
+								
 								<div class="button">
 									<p>Select</p>
 								</div>
-								</article>
 							</a>
+							</article>
 							<?php
 
 
 						}
 						?>
-						</div>
+						
 						<?php
 						wp_reset_postdata();
 						?>
