@@ -20,13 +20,14 @@
 
     @media all and (min-width: $breakpoint-tablet) {
         @include flex-center;
+        align-items: flex-start;
 
         h2 {
             width: 100%;
         }
 
         .testimonial-item {
-            width: 40%;
+            width: 35%;
         }
     }
 }
