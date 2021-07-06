@@ -1,63 +1,48 @@
 .why-choose {
+  padding: 4%;
   color: $color__background-body;
   background: $color__background-button;
-  display: grid;
-  grid-template-columns: 20px repeat(3, 1fr) 20px;
-  grid-template-rows: 20px 100px repeat(2, 1fr) 20px;
-  grid-column-gap: 100px;
-  grid-row-gap: 0px;
-  place-items: center;
-}
 
-// .why-choose-item {
-//   display: flex;
-//   flex-direction: column;
-// }
+  & > h2 {
+    text-align: center;
+    margin-bottom: $header-margin;
+  }
 
-.why-choose h2 {
-  grid-area: 2 / 2 / 3 / 5;
-}
-.div2 {
-  grid-area: 4 / 1 / 5 / 2;
-}
-.div3 {
-  grid-area: 1 / 5 / 2 / 6;
-}
-.div4 {
-  grid-area: 5 / 4 / 6 / 5;
-}
-.why-choose-reasons {
-  grid-area: 3 / 2 / 5 / 5;
-  display: flex;
-}
-
-.why-choose-item {
-  max-width: 270px;
-  padding: 2rem;
-}
-
-@media screen and (max-width: $breakpoint-tablet) {
-  .why-choose-reasons {
-    display: flex;
-    flex-direction: column;
-    font-size: 2rem;
+  h2,
+  p {
+    font-family: $font__main;
+    color: $color__background-body;
   }
 
   .why-choose-item {
-    max-width: 450px;
-    padding: 2rem;
+    margin: 0 auto;
+    max-width: 400px;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 }
 
-@media screen and (max-width: $breakpoint-mobile) {
-  .why-choose-reasons {
+@media screen and (min-width: 679px) {
+  .why-choose {
     display: flex;
-    flex-direction: column;
-    font-size: 1.2rem;
-  }
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    // max-width: 1600px;
 
-  .why-choose-item {
-    max-width: 300px;
-    padding: 1rem;
+    & > h2 {
+      flex-basis: 100%;
+    }
+
+    .why-choose-item {
+      // flex-basis: 33%;
+      width: 300px;
+    }
   }
 }

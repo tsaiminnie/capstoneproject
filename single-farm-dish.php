@@ -142,7 +142,7 @@ get_header();
 
 				<table class="nutrition">
 					<thead>
-					<tr><h3>Nutrition</h3></tr>
+					<tr><th>Nutrition Facts</th></tr>
 					</thead>
 					<tbody>
 					<?php
@@ -207,10 +207,7 @@ get_header();
 
 					<?php
 					if( have_rows('nutrients') ):
-						$field = get_field_object('nutrients');		
-					?>						
-							<h4><?php echo $field['label']; ?></h4>
-							<?php
+						$field = get_field_object('nutrients');	
 								while( have_rows('nutrients') ) : the_row();
 									$sub_value_label = get_sub_field('label');
 									$sub_value_value = get_sub_field('value');
