@@ -27,12 +27,15 @@ get_header();
 				<section class = 'banner'>
 				<?php
 				if ( get_field( 'banner_image' ) ) {
-					echo wp_get_attachment_image( get_field( 'banner_image' ), 'full', '', array( 'class' => '' ));
+					?><div class = "img-container">
+						<?php echo wp_get_attachment_image( get_field( 'banner_image' ), 'full', '', array( 'class' => '' )); ?>
+					  </div>
+					  <?php
 				}
 
 				if ( get_field( 'banner_text_area' ) ) {
 					?>
-					<p> <?php echo get_field( 'banner_text_area'); ?> </p>
+					<h1> <?php echo get_field( 'banner_text_area'); ?> </h1>
 					<?php
 				}
 

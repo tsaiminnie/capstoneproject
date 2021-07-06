@@ -1,10 +1,12 @@
 .how-it-works {
 
-    margin: 6rem auto;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 6rem;
     
     & > h2 {
         text-align: center; 
-        margin: $header-margin;
+        margin-bottom: $header-margin;
     }
 
     h2, p {
@@ -13,12 +15,18 @@
     }
 
     .how-it-work-item {
-        margin: 0 1rem;
+        margin: 0 auto;
+        max-width: 400px;
+
+        img {
+        display: block;
+        margin: 0 auto;
+        }
 
         h2 {
         font-size: 1.5rem;
         }
-}
+    }
 }
 
     @media screen and (min-width: 679px) {
@@ -26,7 +34,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
-            max-width: 1600px;
+            // max-width: 1600px;
 
             & > h2 {
                 flex-basis: 100%;

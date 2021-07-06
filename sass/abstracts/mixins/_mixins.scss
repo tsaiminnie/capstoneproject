@@ -55,8 +55,9 @@
 		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	}
 	@mixin button-yellow {
-		background-color: $color__background-button-yellow;
-		background-image: url("../../../img/yellow-button.png");
+		// background-color: $color__background-button-yellow;
+		background-image: url("img/yellow-button.png");
+		// background-image: url("../../../img/yellow-button.png");
 		padding: 10px 20px;
 		color: white;
 		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
