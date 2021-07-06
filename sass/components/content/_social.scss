@@ -21,7 +21,7 @@
     @media all and (min-width: $breakpoint-tablet) {
         padding: 3.5rem 3rem 3.5rem;
         display: grid;
-        grid-template-columns: 20% 39% 39%;
+        grid-template-columns: 40% 29% 29%;
         grid-template-rows: 1fr 1fr 1fr;
 
         h2 {
@@ -31,7 +31,7 @@
         .social-item {
             width: 30%;
             align-self: center;
-            justify-self: center;
+            justify-self: start;
         }
     }
 }
