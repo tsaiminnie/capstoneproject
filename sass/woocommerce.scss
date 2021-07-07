@@ -41,3 +41,6 @@ $woocommerce__color-info: #CADED4;
  * WooCommerce widgets
  */
 @import "plugins/woocommerce/widgets";
+
+// Cart
+@import "plugins/woocommerce/cart";
