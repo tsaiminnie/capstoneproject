@@ -82,7 +82,7 @@
 			margin: 0 auto;
 
 			h1 {
-				font-size: 1.1rem;
+				font-size: 1.2rem;
 			}
 		}
 
@@ -121,6 +121,10 @@
 		.woocommerce-tabs, .wc-tabs-wrapper {
 			width: 80%;
 			margin: 0 auto 5rem;
+
+			h2 {
+				font-size: 1.1rem;
+			}
 		}
 
 		@media all and (min-width: $breakpoint-tablet){
