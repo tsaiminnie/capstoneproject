@@ -1,0 +1,29 @@
+.woocommerce-page{
+    .entry-header{
+        margin: 0 20px;
+        h1{
+            color: #066436;
+        }
+    }
+    .entry-content{
+        margin: 0 20px;
+        h2{
+            color: #066436;
+        }
+    }
+    .woocommerce-form{
+        label{
+            display: block;
+        }
+        input{
+            display: block;
+        }
+        .woocommerce-button,
+        .woocommerce-Button{
+            margin: 10px 10px 10px 0;
+            padding:10px 20px;
+            color:white;
+        }
+    }
+
+}

@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="current menu site-main">
+	<main id="primary" class="current menu-page site-main">
 
 	<?php 
 	while ( have_posts() ) :
