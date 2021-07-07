@@ -169,17 +169,38 @@ get_header();
 <?php
 	// <!-- CTA -->
 	if ( get_field( 'cta_link' ) ) { ?>
-		<section class='button-container'>
+		<section class='cta-button-container'>
+			<?php
+			$image = get_field( 'cta_image','option');
+			if ( get_field( 'cta_image','option')) {
+				?>
+				<div class="cta-image-container">
+				<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+				</div>
+				<?php
+			}
+			?>
 			<div class='button'><a href=' <?php echo get_field( 'cta_link') ?> '>Try It Free</a></div>
 		</section>
 	<?php
 	}else{ ?>
-		<section class='button-container'>
-			<div class='button'><a href='<?php echo get_permalink(53) ?>'>Try It Free</a></div>
+		<section class='cta-button-container'>
+		<?php
+			$image = get_field( 'cta_image','option');
+			if ( get_field( 'cta_image','option')) {
+				?>
+				<div class="cta-image-container">
+				<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+				</div>
+				<?php
+			}
+			?>
+		<div class='button'><a href='<?php echo get_permalink(53) ?>'>Try It Free</a></div>
 		</section>
-		
 	<?php
 	}
+	// end CTA -------
+
 	endwhile; // End of the loop.
 	?>
 

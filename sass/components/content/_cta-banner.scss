@@ -1,0 +1,45 @@
+.cta-button-container{
+    background-color: $color__secondary;
+    position: relative;
+    height: 200px;
+    margin-top: 100px;
+    .cta-image-container{
+        position: absolute;
+        top: -30px;
+        img{
+            z-index: 5;
+        }
+        @media all and (min-width: $breakpoint-tablet) {
+            top: -50px;
+            left:20%;
+        }
+        @media all and (min-width: $breakpoint-desktop) {
+            top: -60px;
+            left:30%;
+        }
+    }
+    .button{
+        margin: 0 auto;
+        position: relative;
+        top:70px;
+        background-image: url(img/green-button.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 250px 80px;
+        text-align: center;
+        z-index: 10;
+        a{
+            display: block;
+            color:white;
+            padding: 20px;
+        }
+        @media all and (min-width: $breakpoint-tablet) {
+            background-size: 400px 100px;
+            top:40px;
+            a{
+                padding: 50px;
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
