@@ -1,3 +1,13 @@
+// H1 for Cart, Checkout, Account page
+
+
+.entry-title {
+	color: $color__primary;
+	margin-left: 10%;
+}
+
+
+
 /**
  * Header cart
  */
@@ -225,6 +235,7 @@ p.stars {
 p.no-comments {
 	background-color: $woocommerce__color-success;
 	clear: both;
+	text-align: center;
 }
 
 .woocommerce-info,
