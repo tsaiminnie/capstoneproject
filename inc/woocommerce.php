@@ -243,7 +243,15 @@ remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_re
 
 // output to my account dashboard
 function farmtoplate_menu(){
-	
+
+	// check if page is signature or vegetarian
+	$str = get_post_field( 'post_name' );
+	if($str === "signature-meal-kit"){
+		$querySlug = "signature";
+	}else if($str === "vegetarian-meal-kit"){
+		$querySlug = "vegetarian";
+	}
+
 	// calc date (php date)
 	// https://www.php.net/manual/en/function.date.php
 	// https://www.php.net/manual/en/datetime.format.php
@@ -263,10 +271,16 @@ function farmtoplate_menu(){
 						'orderby'            => 'title',
 						'order'              => 'ASC',
 						'tax_query' 		=> array(
+							'relation' => 'AND',
 							array(
 								'taxonomy' 	=> 'farm-week',
 								'field' 	=> 'slug',
 								'terms' 	=> $currentWeek
+							),
+							array(
+								'taxonomy' 	=> 'farm-type',
+								'field' 	=> 'slug',
+								'terms' 	=> $querySlug
 							)
 						)
 					);

@@ -130,7 +130,7 @@ get_header();
 								}
 								?>
 								<!-- end acf -->
-							</a>
+								</a>
 							</article>
 						<?php
 						} ?>
