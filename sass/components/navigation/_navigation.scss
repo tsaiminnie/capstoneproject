@@ -61,13 +61,12 @@
 	}
 
 	.main-navigation ul {
-		margin-top: 20px;
+		margin-top: 40px;
 		display: flex;
-		.menu-item-type-post_type,
-		.menu-item-type-post_type_archive{
-			padding: 25px;
+		.menu-item-type-post_type{
 			font-size: 1.25rem;
 			a{
+				padding:0 20px 15px 20px;
 				text-decoration: none;
 				color: $color__primary;
 			}
@@ -77,12 +76,10 @@
 		}
 		a:hover,
 		a:focus{
-			padding:0 10px 15px 10px ;
-			// text-decoration: underline; 
 			background-image: url("img/underline.png");
 			background-repeat: no-repeat;
-			background-position: 5px 10px;
-			// background-size: 20px 16px;
+			background-position-x: center;
+			background-position-y: 25px;
 		}
 
 	}
