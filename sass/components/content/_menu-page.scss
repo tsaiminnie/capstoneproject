@@ -1,0 +1,94 @@
+.menu{
+    h2{
+        text-align: center;
+        color: $color__primary;
+        margin-top: 60px;
+    }
+
+    // fiter -----------------------------------------
+    .menu-filter{
+        margin: 30px 10px 20px 10px;
+        display: flex;
+        justify-content: center;
+        a{
+            display: block;
+            padding: 15px 20px;
+            width: 260px;
+            background-color: $color__primary;
+            color: white;
+            text-align: center;
+        }
+        .selected{
+            background-color: $color__secondary;
+        }
+    }
+    // menu container ----------------------------------------
+
+    .menu-container{
+        @media all and (min-width: $breakpoint-tablet) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+    .vegetarian-menu,
+    .signature-menu{
+        @media all and (min-width: 1200px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 0 20px;
+        }
+        h2{
+            grid-column-start: 1;
+            grid-column-end: span 2;
+            grid-row-start: 1;
+        }
+    }
+
+   
+
+    // menu item ----------------------------------------------------
+    .menu-item{
+        max-width: 280px;
+        margin: 20px auto;
+        .dish-image{
+            display: block;
+            height: 280px;
+            object-fit: cover;
+        }
+        h3{
+            margin: 10px 0 0 0;
+        }
+        figure{
+            display: inline-block;
+            width: 100px;
+            margin: 10px 10px 10px 0;
+        }
+        @media all and (min-width: 1200px) {
+            margin: 20px 10px;
+        }
+    }
+    // long button -------------------------------------
+    .long-button{
+        margin: 60px auto;
+        background-image: url(img/green-button.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 250px 50px;
+        text-align: center;
+        a{
+            display: block;
+            // margin-top: 10px;
+            color:white;
+            padding: 20px;
+        }
+        @media all and (min-width: $breakpoint-tablet) {
+            background-size: 400px 100px;
+            a{
+                padding: 50px;
+                font-size: 1.25rem;
+            }
+        }
+    }
+}

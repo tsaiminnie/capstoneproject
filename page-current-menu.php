@@ -72,8 +72,9 @@ get_header();
 							$query -> the_post();
 						?>
 							<article class='menu-item'>	
-								<?php the_post_thumbnail('medium');?>
-								<a href="<?php the_permalink();?>"><?php the_title(); ?></a>
+								<a href="<?php the_permalink();?>">
+								<?php the_post_thumbnail('large', array('class' => 'dish-image'));?>
+								<h3><?php the_title(); ?></h3>
 								<!-- acf -->
 								<?php
 								if ( function_exists ( 'get_field' ) ) {
@@ -129,6 +130,7 @@ get_header();
 								}
 								?>
 								<!-- end acf -->
+								</a>
 							</article>
 						<?php
 						} ?>
