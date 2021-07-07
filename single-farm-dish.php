@@ -114,7 +114,7 @@ get_header();
 		if ( function_exists ( 'get_field' ) ) {
 		?>
 			<section class="ingredients">
-				<h2>Ingredients</h2>
+				<h2 class="ingredients-title">Ingredients</h2>
 				<?php
 				if( have_rows('what_we_deliver') ):
 				?>
@@ -270,8 +270,8 @@ get_header();
 						?>
 								<article class = 'cooking-steps'>
 									<?php echo $sub_value_img; ?>
-									<h3><?php echo $sub_value_step ?> </h3>
-									<?php echo $sub_value_text_area ?>
+									<div><h3><?php echo $sub_value_step ?> </h3>
+									<?php echo $sub_value_text_area ?></div>
 								</article>
 						<?php	endwhile;
 						?>

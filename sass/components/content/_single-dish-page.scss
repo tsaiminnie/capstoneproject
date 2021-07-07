@@ -61,7 +61,7 @@
     }
 
     .deliver {
-        margin: 2rem auto;
+        // margin: 2rem auto;
         display: flex;
         flex-wrap: wrap;
 
@@ -79,9 +79,36 @@
         }
     }
 }
+
+// @media screen and (min-width: 670px){
+//     & {
+//         display: grid;
+//         grid-template-columns: 2fr 1fr;
+
+//         .deliver {
+//             grid-column: 1;
+
+//             &, h3 {
+//                 margin-top: 0;
+//             }
+//             }
+
+//         .need {
+//             margin: 0;
+//         }
+
+//         table.nutrition {
+//             grid-column: 2;
+//             grid-row: 2;
+//             align-self: start;
+//         }
+//     }
+
+
+// }
     
     .need {
-        margin: 2rem auto;
+        // margin: 2rem auto;
         ul {
             margin: revert;
             // display: flex;
@@ -102,7 +129,7 @@
         border: 1px solid black;
         border-collapse: collapse;
         max-width: 300px;
-        margin: 0 auto;
+        margin-top: 4rem;
 
         thead {
             font-size: 1.17em;
@@ -154,17 +181,60 @@
 
 }
 
+
+@media screen and (min-width: 670px){
+
+.ingredients {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: .5fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "ingredients-title ingredients-title ingredients-title"
+      "deliver deliver nutrition"
+      "deliver deliver nutrition"
+      "need need .";
+  }
+  
+  .ingredients-title { grid-area: ingredients-title; }
+  
+  .deliver { 
+      grid-area: deliver;
+      margin: 0;
+      &, h3 {
+      margin-top: 0;
+      }
+ }
+  
+  .need { grid-area: need; }
+  
+  .nutrition { grid-area: nutrition; }
+
+  table {
+      margin-top: 0 !important;
+  }
+
+}
+
+
 .cooking-directions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
 
     h2 {
-        flex-basis: 100%;
+        // flex-basis: 100%;
     }
 
-    article {
-        width: 300px;
+    .cooking-steps {
+        // width: 300px;
+        display: flex;
+        margin-bottom: 2rem;
+
+        div {
+            margin-left: 2rem;
+        }
     }
 }
 

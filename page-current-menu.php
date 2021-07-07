@@ -148,11 +148,31 @@ get_header();
 		// <!-- CTA -->
 		if ( get_field( 'cta_link' ) ) { ?>
 			<section class='button-container'>
+				<?php
+				$image = get_field( 'cta_image');
+				if ( get_field( 'cta_image')) {
+					?>
+					<div>
+					<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?> " class='cta-image' />
+					</div>
+					<?php
+				}
+				?>
 				<div class='button'><a href=' <?php echo get_field( 'cta_link') ?> '>Try It Free</a></div>
 			</section>
 		<?php
 		}else{ ?>
 			<section class='button-container'>
+			<?php
+				$image = get_field( 'cta_image');
+				if ( get_field( 'cta_image')) {
+					?>
+					<div>
+					<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?> " class='cta-image' />
+					</div>
+					<?php
+				}
+				?>
 			<div class='button'><a href='<?php echo get_permalink(53) ?>'>Try It Free</a></div>
 			</section>
 			
