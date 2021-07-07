@@ -296,7 +296,7 @@ function farmtoplate_menu(){
 							?>
 							<article class='menu-item'>	
 								<?php
-									the_post_thumbnail('medium');
+									the_post_thumbnail('menu-home');
 								?>
 								<a href="<?php the_permalink();?>"><?php the_title(); ?></a>
 							</article>
