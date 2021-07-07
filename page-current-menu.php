@@ -72,8 +72,65 @@ get_header();
 							$query -> the_post();
 						?>
 							<article class='menu-item'>	
-								<?php the_post_thumbnail('medium');?>
-								<a href="<?php the_permalink();?>"><?php the_title(); ?></a>
+								<a href="<?php the_permalink();?>">
+								<?php the_post_thumbnail('large', array('class' => 'dish-image'));?>
+								<h3><?php the_title(); ?></h3>
+								<!-- acf -->
+								<?php
+								if ( function_exists ( 'get_field' ) ) {
+									?>
+									<div class="dish-info-container">
+									<?php
+									if ( get_field( 'flavour_notes' ) ) {
+										?>
+										<figure class = 'flavour_notes'>
+											<?php
+											if(get_field('flavour_notes') === "mild"){
+												?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/mild.png" alt="mild flavour">
+												<?php
+												
+											}else if(get_field('flavour_notes') === "medium"){
+												?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/medium.png" alt="medium spicy flavour">
+												<?php
+											}else if(get_field('flavour_notes') === "hot"){
+												?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/spicy.png" alt="spicy flavour">
+												<?php
+											}
+											?>
+										</figure>
+										<?php
+									}
+									if ( get_field( 'time' ) ) {
+										?>
+										<figure class = 'time'>
+											<?php
+											if(get_field('time') === "15 min"){
+												?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/15min.png" alt="15 min to cook">
+												<?php
+											}else if(get_field('time') === "30 min"){
+												?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/30min.png" alt="30 min to cook">
+												<?php
+											}else if(get_field('time') === "1 hr"){
+												?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/1hr.png" alt="1 hour to cook">
+												<?php
+											}
+											?>
+										</figure>
+										<?php
+									}
+									?>
+									</div>
+									<?php
+								}
+								?>
+								<!-- end acf -->
+								</a>
 							</article>
 						<?php
 						} ?>

@@ -83,21 +83,23 @@ get_header();
 				if ( function_exists ( 'get_field' ) ) {
 					?>
 					<section class = 'faq'>
+					<h2>Common Questions</h2>
 					<?php
 					if( have_rows('faq') ):
 						while( have_rows('faq') ) : the_row();
 							$faq_category_heading = get_sub_field('category_heading');
 							?>
 							<div class = 'faq-category'>
-							<?php
-								echo "<h2>$faq_category_heading</h2>";
+								<h3><?php echo $faq_category_heading?></h3>
+								<hr>
+								<?php
 								while(have_rows('category')): the_row();
 									?>
 									<article class = 'faq-qa'>
 									<?php
 									$faq_question = get_sub_field('question');
 									$faq_answer = get_sub_field('answer');
-									echo "<h3>$faq_question</h3>";
+									echo "<h4>$faq_question</h4>";
 									echo $faq_answer;
 									?>
 									</article>
@@ -116,7 +118,7 @@ get_header();
 					if ( get_field( 'cta_faq_link' ) ) {
 						?>
 						<section class='button-container'>
-							<div class='button'><a target='_blank' href=' <?php echo get_field( 'cta_faq_link') ?>'>Read the FAQs</a></div>
+							<div class='button'><a target='_blank' href=' <?php echo get_field( 'cta_faq_link') ?>'>Check out our FAQs</a></div>
 						</section>
 						<?php
 					}else{
@@ -132,7 +134,7 @@ get_header();
 				// delivery area
 				?>
 				<section class="delivery">
-				<h2>Delivery Area</h2>
+				<h2>We Deliver to Greater Vancouver</h2>
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10417.699821447517!2d-123.01679330829566!3d49.24939081924198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54867721fd53fee5%3A0x355ab207647a109d!2sBritish%20Columbia%20Institute%20of%20Technology!5e0!3m2!1sen!2sca!4v1624907010490!5m2!1sen!2sca" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 				</section>
 
