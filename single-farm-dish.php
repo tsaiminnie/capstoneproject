@@ -234,24 +234,21 @@ get_header();
 										echo "<td>$sub_value_value</td>";
 									echo "</tr>";
 								endwhile;
-							?>
-						<!-- </div> -->
-					<?php
 					endif;
-					?>
-				</tbody>
-				</table>
 
-				<article class="allergen">
-				<?php
 					if ( get_field( 'allergen' ) ) {
+						$field = get_field_object('allergen');
 						?>
-						<h3>Allergen Info</h3>
-						<p><?php the_field('allergen'); ?></p>
+						<tr class="<?php echo $field['name']; ?>">
+							<th><?php echo $field['label']; ?> Info</th> 
+							<td><?php echo $field['value']; ?></td>
+						</tr>
 					<?php	
 					}
 					?>
-				</article>
+
+				</tbody>
+				</table>
 			</section>
 		<?php
 		}

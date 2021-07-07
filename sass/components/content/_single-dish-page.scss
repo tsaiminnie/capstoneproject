@@ -1,23 +1,180 @@
-.banner {
-    // position: static;
+.single-dish {
 
-.inner-banner {
+    margin: 0 4%;
+
+    h2 {
+        color: $color__primary;
+    }
+
+    .inner-banner {
     position: relative;
-    z-index: -1;
 
     h1 {
-        top: 8rem;
+        bottom: 2rem;
     }
 }
 
     .dish-info-icon {
+        text-align: center;
+        // margin: 0 2%;
+
         figure {
+            display: inline-block;
+            // margin: auto .4rem;
+
            img {
-               height: fit-content;
-            //    width: auto;
-               object-fit: contain;
-               object-position: unset;
+            width: 80px;
+            height: 20px;
+            display: block;
+            object-fit: contain;
+            object-position: center;
            }
         }
+
+        @media screen and (min-width: $breakpoint-mobile) {
+            & {
+                text-align: right;
+                margin-right: 4%;
+
+            
+            figure img {
+                width: 100px;
+                height: 24px;
+            }
+
+            }
+        }
     }
+
+
+// Section Ingredients
+
+.ingredients {
+    margin: 4rem auto;
+
+    h2, .deliver-item p  {
+        color: $color__primary;
+    }
+
+    h3 {
+        color: $color__secondary;
+    }
+
+    .deliver {
+        margin: 2rem auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        h3 {
+            flex-basis: 100%;
+        }
+
+    .deliver-item {
+        text-align: center;
+            flex: 1 0 auto;
+
+        img {
+            height: 125px;
+            width: 125px;
+        }
+    }
+}
+    
+    .need {
+        margin: 2rem auto;
+        ul {
+            margin: revert;
+            // display: flex;
+            // flex-wrap: wrap;
+            // justify-content: space-between;
+
+            li {
+                // width: 50%;
+                font-size: 14px;
+                // margin: 0 2%;
+            }
+        }
+    }
+
+
+
+    table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        max-width: 300px;
+        margin: 0 auto;
+
+        thead {
+            font-size: 1.17em;
+
+            tr {
+            width: 100%;
+            border-bottom: 1px solid black;
+            }
+        }
+
+        th {
+            text-align: left;
+        }
+
+        td {
+            font-size: 14px;
+        }
+
+        .calories {
+            border-bottom: 3px solid black;
+            td:first-of-type {
+                font-size: 1.17em;
+            }
+        }
+
+        .nutrition-item {
+            td:first-of-type {
+            font-weight: bold;
+        }
+    }
+
+        .sodium {
+            border-bottom: 3px solid black;
+        }
+
+        .nutrients-item {
+            border-bottom: 3px solid black;
+        }
+
+        .allergen {
+            display: flex;
+            flex-wrap: wrap;
+
+            th {
+                flex-basis: 100%;
+            }
+        }
+    }
+
+}
+
+.cooking-directions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    h2 {
+        flex-basis: 100%;
+    }
+
+    article {
+        width: 300px;
+    }
+}
+
+
+
+
+}
+
+// yellow button container section
+
+.button-container {
+
 }
