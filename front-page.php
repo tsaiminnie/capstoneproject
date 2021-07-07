@@ -160,7 +160,7 @@ get_header();
 				$query = new WP_Query( $args );
 				if ( $query -> have_posts() ){
 					?>
-					<section class="testimonial"><h2>Testimonial</h2>
+					<section class="testimonial"><h2>What Our Customers Say</h2>
 					<?php
 					while ($query-> have_posts() ){
 						?>
@@ -185,13 +185,13 @@ get_header();
 			$args = array(
 				'post_type'      => 'farm-social',
 				'orderby'        => 'rand',
-				'posts_per_page' => 2,
+				'posts_per_page' => 4,
 				);
 
 				$query = new WP_Query( $args );
 				if ( $query -> have_posts() ){
 					?>
-					<section class="social"><h2>Social</h2>
+					<section class="social"><h2>As Featured in</h2>
 					<?php
 					while ($query-> have_posts() ){
 						$query -> the_post();

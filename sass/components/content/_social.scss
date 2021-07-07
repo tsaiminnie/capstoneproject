@@ -22,10 +22,10 @@
         padding: 3.5rem 3rem 3.5rem;
         display: grid;
         grid-template-columns: 40% 29% 29%;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
 
         h2 {
-           grid-row: span 3;
+           grid-row: span 2;
         }
 
         .social-item {
