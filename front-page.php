@@ -154,7 +154,7 @@ get_header();
 			$args = array(
 				'post_type'      => 'farm-testimonial',
 				'orderby'        => 'rand',
-				'posts_per_page' => 2,
+				'posts_per_page' => 4,
 				);
 
 				$query = new WP_Query( $args );
