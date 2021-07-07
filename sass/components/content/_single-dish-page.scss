@@ -80,32 +80,6 @@
     }
 }
 
-// @media screen and (min-width: 670px){
-//     & {
-//         display: grid;
-//         grid-template-columns: 2fr 1fr;
-
-//         .deliver {
-//             grid-column: 1;
-
-//             &, h3 {
-//                 margin-top: 0;
-//             }
-//             }
-
-//         .need {
-//             margin: 0;
-//         }
-
-//         table.nutrition {
-//             grid-column: 2;
-//             grid-row: 2;
-//             align-self: start;
-//         }
-//     }
-
-
-// }
     
     .need {
         // margin: 2rem auto;
@@ -219,9 +193,6 @@
 
 
 .cooking-directions {
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
 
     h2 {
         // flex-basis: 100%;
@@ -243,8 +214,3 @@
 
 }
 
-// yellow button container section
-
-.button-container {
-
-}
