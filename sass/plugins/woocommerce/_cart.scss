@@ -1,0 +1,65 @@
+.post-15 {
+    padding: 0 1rem;
+    color: $color__primary;
+
+    // .woocommerce-cart-form__cart-item.cart_item {
+    //     margin: 2rem 0;
+    // }
+
+    .product-remove a {
+        background-color: $color__primary;
+        color: #fff;
+        padding: .15rem .5rem;
+        border-radius: 50%;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    .woocommerce-cart-form td {
+        padding: .5rem;
+    }
+
+    // .woocommerce-cart-form .product-thumbnail {
+    //     background: #EDF5F1;
+    // }
+
+    .product-thumbnail {
+        text-align: center;
+        background: #EDF5F1;
+    }
+
+    .variation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        
+        .variation-ServingsPerMeal, .variation-MealsaWeek {
+            width: 35%;
+        }
+
+        dd {
+            margin: 0;
+        }
+
+    }
+
+    .input-text.qty.text {
+        width: 80px;
+    }
+
+    .coupon {
+        label {
+            display: none;
+        }
+
+        input {
+            margin-right: .5rem;
+        }
+
+    }
+
+    button {
+        color: #fff;
+        margin: .5rem 0;
+    }
+}
