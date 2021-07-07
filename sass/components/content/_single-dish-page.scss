@@ -1,0 +1,23 @@
+.banner {
+    // position: static;
+
+.inner-banner {
+    position: relative;
+    z-index: -1;
+
+    h1 {
+        top: 8rem;
+    }
+}
+
+    .dish-info-icon {
+        figure {
+           img {
+               height: fit-content;
+            //    width: auto;
+               object-fit: contain;
+               object-position: unset;
+           }
+        }
+    }
+}

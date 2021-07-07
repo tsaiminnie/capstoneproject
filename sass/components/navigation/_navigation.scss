@@ -1,5 +1,7 @@
 .main-navigation {
 	display: block;
+	position: static;
+	z-index: 100;
 	// primary-menu
 	ul {
 		display: none;
