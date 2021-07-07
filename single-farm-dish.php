@@ -283,35 +283,38 @@ get_header();
 		}
 
 		// <!-- CTA -->
-		if ( get_field( 'cta_link' ) ) {
-			?>
-			<section class='button-container'>
+		if ( get_field( 'cta_link' ) ) { ?>
+			<section class='cta-button-container'>
+				<?php
+				$image = get_field( 'cta_image','option');
+				if ( get_field( 'cta_image','option')) {
+					?>
+					<div class="cta-image-container">
+					<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+					</div>
+					<?php
+				}
+				?>
 				<div class='button'><a href=' <?php echo get_field( 'cta_link') ?> '>Try It Free</a></div>
 			</section>
 		<?php
-		}else{
-			?>
-			<section class='button-container'>
+		}else{ ?>
+			<section class='cta-button-container'>
+			<?php
+				$image = get_field( 'cta_image','option');
+				if ( get_field( 'cta_image','option')) {
+					?>
+					<div class="cta-image-container">
+					<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+					</div>
+					<?php
+				}
+				?>
 			<div class='button'><a href='<?php echo get_permalink(53) ?>'>Try It Free</a></div>
 			</section>
 		<?php
 		}
-
-
-
-		// 	get_template_part( 'template-parts/content', get_post_type() );
-
-			// the_post_navigation(
-			// 	array(
-			// 		'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'farm-to-plate' ) . '</span> <span class="nav-title">%title</span>',
-			// 		'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'farm-to-plate' ) . '</span> <span class="nav-title">%title</span>',
-			// 	)
-			// );
-
-			// // If comments are open or we have at least one comment, load up the comment template.
-			// if ( comments_open() || get_comments_number() ) :
-			// 	comments_template();
-			// endif;
+		// end CTA -------
 
 		endwhile; // End of the loop.
 		?>
