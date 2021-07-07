@@ -82,7 +82,7 @@ get_header();
 				// FAQ snippet
 				if ( function_exists ( 'get_field' ) ) {
 					?>
-					<section class = 'faq'>
+					<section class = 'pricing-faq'>
 					<h2>Common Questions</h2>
 					<?php
 					if( have_rows('faq') ):
