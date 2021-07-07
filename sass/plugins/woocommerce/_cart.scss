@@ -32,9 +32,15 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
+
+        :nth-child(odd) {
+            width: 65%;
+
+        }
         
-        .variation-ServingsPerMeal, .variation-MealsaWeek {
-            width: 35%;
+        :nth-child(even) {
+            width: 6%;
+            text-align: right;
         }
 
         dd {
