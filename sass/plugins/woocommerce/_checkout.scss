@@ -1,8 +1,12 @@
 .woocommerce-billing-fields {
-	color: $color__primary;
+	// color: $color__primary;
+	margin-top: 2rem;
 }
 
-
+.woocommerce-checkout-review-order {
+	background-color:$color__background-lightgreen;
+	padding: 1rem;
+}
 
 
 
