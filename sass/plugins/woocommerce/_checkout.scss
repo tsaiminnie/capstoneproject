@@ -18,18 +18,6 @@
 	background-color:$color__background-lightgreen;
 	padding: 1rem;
 
-	table {
-		.blockUI.blockOverlay {
-			z-index: 0;
-		background: none;
-		display: none;
-		}
-	}
-
-// 	woocommerce-checkout-payment
-// }
-
-
 
     // checkout button 
     #place_order {
@@ -37,29 +25,4 @@
         border-radius: 25px;
     }
 
-
-
-
-
-
-// @media screen and (min-width: 768px) {
-
-// 	.col2-set {
-
-// 		.form-row-first {
-// 			float: left;
-// 			margin-right: $columns__margin;
-// 		}
-
-// 		.form-row-last {
-// 			float: right;
-// 			margin-right: 0;
-// 		}
-
-// 		.form-row-first,
-// 		.form-row-last {
-
-// 			@include column-width(2);
-// 		}
-// 	}
-// }
+}
