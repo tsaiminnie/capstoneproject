@@ -16,11 +16,13 @@
         padding: .5rem;
     }
 
-
     .product-thumbnail {
         text-align: center;
         background: #EDF5F1;
+    }
 
+    .product-name a {
+        font-weight: 700;
     }
 
     // styles for variation elements (servings per meal & meals a week)
@@ -129,10 +131,11 @@
 
         .variation {
             justify-content: flex-start;
+            margin: 0;
 
-            :nth-child(odd) {
-                width: 50%;
-            }
+            // :nth-child(odd) {
+            //     width: 70%;
+            // }
         }
 
         .subscription-details {
