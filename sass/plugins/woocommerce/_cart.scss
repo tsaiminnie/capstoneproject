@@ -1,13 +1,6 @@
 // Cart Page
 .post-15 {
     padding: 0 1rem;
-    //color: $color__primary;
-
-    .entry-content{
-        margin-left: 0;
-        width: 90%;
-        margin: 0 auto;   
-    }
 
     // remove button
     .product-remove a {
@@ -81,6 +74,14 @@
     // Cart totals section
     .cart-collaterals {
         padding-bottom: 2rem;
+
+        .cart_totals {
+
+            td {
+                background: #EDF5F1;
+                padding: 1rem;
+            }
+        }
 
     }
 
@@ -164,10 +165,12 @@
                 background: #EDF5F1;
                 padding: 1rem;
             }
+        }
 
-            p {
-                display: block;
-            }
+        // checkout button
+        .wc-proceed-to-checkout {
+            margin-top: 2rem;
+            
         }
     }
 }
