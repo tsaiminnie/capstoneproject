@@ -10,29 +10,35 @@
 
 
 
+    // checkout button 
+    #place_order {
+        padding: .75rem 1rem;
+        border-radius: 25px;
+    }
 
 
 
 
 
-@media screen and (min-width: 768px) {
 
-	.col2-set {
+// @media screen and (min-width: 768px) {
 
-		.form-row-first {
-			float: left;
-			margin-right: $columns__margin;
-		}
+// 	.col2-set {
 
-		.form-row-last {
-			float: right;
-			margin-right: 0;
-		}
+// 		.form-row-first {
+// 			float: left;
+// 			margin-right: $columns__margin;
+// 		}
 
-		.form-row-first,
-		.form-row-last {
+// 		.form-row-last {
+// 			float: right;
+// 			margin-right: 0;
+// 		}
 
-			@include column-width(2);
-		}
-	}
-}
+// 		.form-row-first,
+// 		.form-row-last {
+
+// 			@include column-width(2);
+// 		}
+// 	}
+// }
