@@ -1,11 +1,31 @@
 .woocommerce-billing-fields {
-	// color: $color__primary;
 	margin-top: 2rem;
+
+	label {
+		margin-right: 10px;
+	}
+}
+
+.woocommerce-form__label {
+	display: flex;
+	
+	input {
+		margin-right: 10px;
+	}
 }
 
 .woocommerce-checkout-review-order {
 	background-color:$color__background-lightgreen;
 	padding: 1rem;
+
+	table {
+
+		.blockUI.blockOverlay {
+			z-index: 0;
+		background: none;
+		display: none;
+		}
+	}
 }
 
 
