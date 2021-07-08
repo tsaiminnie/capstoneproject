@@ -1,6 +1,10 @@
 .single-dish {
 
-    margin: 0 4%;
+    // margin: 0 4%;
+
+    .banner {
+        margin: 0 4%;
+    }
 
     h2 {
         color: $color__primary;
@@ -50,7 +54,7 @@
 // Section Ingredients
 
 .ingredients {
-    margin: 4rem auto;
+    margin: 4rem 4%;
 
     h2, .deliver-item p  {
         color: $color__primary;
@@ -85,9 +89,10 @@
         // margin: 2rem auto;
         ul {
             margin: revert;
-            // display: flex;
-            // flex-wrap: wrap;
-            // justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 30px;
+
 
             li {
                 // width: 50%;
@@ -102,7 +107,7 @@
     table {
         border: 1px solid black;
         border-collapse: collapse;
-        max-width: 300px;
+        // max-width: 300px;
         margin-top: 4rem;
 
         thead {
@@ -183,34 +188,32 @@
   
   .need { grid-area: need; }
   
-  .nutrition { grid-area: nutrition; }
-
-  table {
+  .nutrition { 
+      grid-area: nutrition;
       margin-top: 0 !important;
-  }
+      max-width: 300px;
+     }
 
 }
 
 
 .cooking-directions {
+    margin: 0 4%;
 
-    h2 {
-        // flex-basis: 100%;
-    }
 
     .cooking-steps {
-        // width: 300px;
-        display: flex;
         margin-bottom: 2rem;
 
-        div {
-            margin-left: 2rem;
+        @media screen and (min-width: 600px) {
+            & {
+                display: flex;
+
+                div {
+                    margin-left: 2rem;
+                }
+            }
         }
     }
 }
-
-
-
-
 }
 
