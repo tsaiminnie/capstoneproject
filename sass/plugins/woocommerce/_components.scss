@@ -4,6 +4,36 @@
 .entry-title {
 	color: $color__primary;
 	margin-left: 10%;
+	color: #066436;
+}
+.entry-content{
+	margin-left: 10%;
+	h2{
+		color: #066436;
+	}
+}
+
+.woocommerce-form{
+	.woocommerce-form-row{
+		margin: 10px 0 10px 0;
+	}
+	label{
+		display: block;
+		margin-bottom: 10px;
+	}
+	input{
+		display: block;
+	}
+	.woocommerce-form__input-checkbox{
+		display: inline-block;
+		margin-right: 10px;
+	}
+	.woocommerce-button,
+	.woocommerce-Button{
+		margin: 10px 10px 10px 0;
+		padding:10px 20px;
+		color:white;
+	}
 }
 
 
