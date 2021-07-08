@@ -1,3 +1,6 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR6zFQixHl8iMZjIyT6bkznTH0CahK0lM"></script>
+<script type="text/javascript">
+
 <?php
 /**
  * Farm to Plate functions and definitions
@@ -6,6 +9,7 @@
  *
  * @package Farm_to_Plate
  */
+
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
@@ -231,3 +235,15 @@ if( function_exists('acf_add_options_page') ) {
 	));
 	
 }
+
+// Adding Google Maps ACF
+// Code via: https://www.advancedcustomfields.com/resources/google-map/
+
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'AIzaSyBR6zFQixHl8iMZjIyT6bkznTH0CahK0lM';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+wp_enqueue_script( 'google-map', get_template_directory_uri() . '/js/google-map.js', array('jquery', 'google-server'), _S_VERSION, true );
+wp_enqueue_script( 'google-server', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBR6zFQixHl8iMZjIyT6bkznTH0CahK0lM', array(), _S_VERSION, true );
