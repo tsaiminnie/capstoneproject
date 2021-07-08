@@ -214,7 +214,29 @@ get_header();
 		<!-- Add ACF map -->
 		<section class="delivery">
 			<h2>We Deliver to Greater Vancouver</h2>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10417.699821447517!2d-123.01679330829566!3d49.24939081924198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54867721fd53fee5%3A0x355ab207647a109d!2sBritish%20Columbia%20Institute%20of%20Technology!5e0!3m2!1sen!2sca!4v1624907010490!5m2!1sen!2sca" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10417.699821447517!2d-123.01679330829566!3d49.24939081924198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54867721fd53fee5%3A0x355ab207647a109d!2sBritish%20Columbia%20Institute%20of%20Technology!5e0!3m2!1sen!2sca!4v1624907010490!5m2!1sen!2sca" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+
+				<?php 
+$location = get_field('map');
+if( $location ): ?>
+    <div class="acf-map" data-zoom="16">
+        <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
+    </div>
+<?php endif; ?>
+
+<?php if( have_rows('map') ): ?>
+<div class="acf-map" data-zoom="16">
+<?php while ( have_rows('map') ) : the_row();
+// Load sub field values.
+$location = get_sub_field('map');
+?>
+<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>">
+<h3><?php echo esc_html( $title ); ?></h3>
+<p><em><?php echo esc_html( $location['address'] ); ?></em></p> <p><?php echo esc_html( $description ); ?></p>
+</div>
+<?php endwhile; ?> </div>
+<?php endif; ?>
+
 		</section>
 
 		<?php
