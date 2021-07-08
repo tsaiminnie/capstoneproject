@@ -57,7 +57,7 @@ get_header();
 			?>
 			</section>
 			<?php
-
+			}
 
 			// <!-- CTA -->
 		// <!-- CTA -->
@@ -93,7 +93,7 @@ get_header();
 	<?php
 	}
 	// end CTA -------
-		}
+		
 
 		endwhile; // End of the loop.
 		?>
