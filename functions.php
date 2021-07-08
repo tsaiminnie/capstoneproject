@@ -1,6 +1,3 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR6zFQixHl8iMZjIyT6bkznTH0CahK0lM"></script>
-<script type="text/javascript">
-
 <?php
 /**
  * Farm to Plate functions and definitions
