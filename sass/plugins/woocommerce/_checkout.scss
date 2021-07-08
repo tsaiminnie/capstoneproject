@@ -17,7 +17,14 @@
 .woocommerce-checkout-review-order {
 	background-color:$color__background-lightgreen;
 	padding: 1rem;
+	
+	.methods {
+		margin-left: 0;
+	}
 
+	fieldset {
+		border: none;
+	}
 
     // checkout button 
     #place_order {
