@@ -97,9 +97,15 @@
     }
 
     // styling for faq cta button section
-    .button-container {
-        margin: 2rem 0;
-    }
+    .button-container{
+        padding: .5rem;
+
+        a {
+            margin: 2rem 0;
+            padding: 10px 20px;
+        }
+
+    } 
 
     // styling for delivery area section
     .delivery {
