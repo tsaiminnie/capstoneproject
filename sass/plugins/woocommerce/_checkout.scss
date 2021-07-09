@@ -1,35 +1,61 @@
-.woocommerce-billing-fields {
-	margin-top: 2rem;
+.page-id-16{
 
-	label {
-		margin-right: 10px;
-	}
-}
 
-.woocommerce-form__label {
-	display: flex;
+		.woocommerce-form-coupon {
+			display: flex;
+			flex-wrap: wrap;
+			max-width: 500px;
+			margin: 2rem auto;
+			text-align: center;
+			justify-content: center;
+			align-items: center;
+
+			p:first-of-type {
+				flex-basis: 100%;
+			}
+
+			p:nth-child(2) {
+				margin-right: 10px;
+			}
+
+		}
 	
-	input {
-		margin-right: 10px;
-	}
-}
 
-.woocommerce-checkout-review-order {
-	background-color:$color__background-lightgreen;
-	padding: 1rem;
-	
-	.methods {
-		margin-left: 0;
+
+	.woocommerce-billing-fields {
+		margin-top: 2rem;
+
+		label {
+			margin-right: 10px;
+		}
 	}
 
-	fieldset {
-		border: none;
+	.woocommerce-form__label {
+		display: flex;
+		
+		input {
+			margin-right: 10px;
+		}
 	}
 
-    // checkout button 
-    #place_order {
-        padding: .75rem 1rem;
-        border-radius: 25px;
-    }
+	.woocommerce-checkout-review-order {
+		background-color:$color__background-lightgreen;
+		padding: 1rem;
+		margin-bottom: 6rem;
+		
+		.methods {
+			margin-left: 0;
+		}
+
+		fieldset {
+			border: none;
+		}
+
+	}
+
+	button {
+		padding: .75rem 1rem;
+		border-radius: 25px;
+	}
 
 }
